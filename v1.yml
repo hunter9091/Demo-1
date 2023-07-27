@@ -8,7 +8,7 @@
 
 
   - name: Installing Pkg for apache server
-    pkg:
+    yum:
       name: httpd
       state: present
 
