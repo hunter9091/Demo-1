@@ -1,9 +1,19 @@
-- hosts: all
+- hosts: localhost
   tasks:
-    
-    - name: Creating a file for testing
-      copy:
-        src: /tmp/v1_test.txt
-        dest: /root/book/
-    
-   
+
+  - name: Copying files for testing
+    copy: 
+      src: /etc/passwd
+      dest: /tmp/
+
+
+  - name: Installing Pkg for apache server
+    pkg:
+      name: httpd
+      state: present
+
+  - name: Starting services for apache server
+     service:
+       name: httpd
+       state: started
+       
